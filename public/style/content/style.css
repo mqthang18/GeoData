@@ -1,0 +1,88 @@
+:root{
+    --widthSearch: 20%;
+
+    --background-color: rgb(95, 95, 224);
+    --fontSize-content: 2rem; 
+
+    --widthSearch--Box: 80%;
+    --widthSearch--Button: calc(100% - var(--widthSearch--Box) );
+}
+
+.wrapper .content {
+    width: 100vw;
+    position: relative;
+}
+
+.search {
+    width: var(--widthSearch);
+    position: absolute;
+    margin: 10rem 10rem;
+    display: flex;
+    background: var(--background-color);
+    border-radius: 0.8rem;
+}
+
+.search label, select, button, input {
+    font-size: var(--fontSize-content);
+    font-family: 'Inter', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;
+}
+
+.search label {
+    color: white;
+}
+
+.search button {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.8rem;
+    background-color: var(--background-color);
+    color: white;
+    opacity: .8;
+}
+
+.search--Box {
+    width: var(--widthSearch--Box);
+    padding: 0.6rem 0rem 0.6rem 0.6rem;
+}
+
+.search--Button {
+    width: var(--widthSearch--Button);
+}
+
+.search--Box .ConditionSearch {
+    display: flex;
+    width: 90%;
+    padding-bottom: 1rem;
+    margin: auto;
+}
+
+.search--Box .ConditionSearch label {
+    width: fit-content;
+    padding-right: 1rem;
+}
+.search--Box .ConditionSearch #Condition {
+    width: 100%;
+
+}
+
+.search--Box .EnterKeyword {
+    width: 94%;
+}
+
+.search--Box .EnterKeyword input {
+    width: 100%;
+    margin: auto;
+}
+
+.search--Box select, input {
+    border-radius: 0.4rem;
+    border: 1px solid white;
+}
+
+.search--Button button:hover{
+    transition: 0.15s;
+    background-color: rgb(95 95 156);
+    opacity: 1;
+    box-shadow: 6px 3px 13px -1px rgb(95 95 156);
+}

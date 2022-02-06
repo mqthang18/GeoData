@@ -1,0 +1,21 @@
+@media screen and (max-width:1200px) {
+    :root {
+        --widthSearch: 25%;
+    }
+}
+
+@media screen and (max-width:950px) {
+    :root {
+        --widthSearch: 30%;
+    }
+}
+
+@media screen and (max-width:750px) {
+    :root {
+        --widthSearch: 90%;
+    }
+    .search {
+        position: unset;
+        margin: 2rem auto;
+    }
+}

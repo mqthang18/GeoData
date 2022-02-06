@@ -1,0 +1,28 @@
+
+/*================= Footer ===================*/
+.wrapper .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* background-image: linear-gradient(rgba(165, 164, 194, 0.308), rgba(165, 164, 194, 0.308)), url("/public/img/Banner/Footer/Banner.jpg"); */
+    /* background-repeat: no-repeat; */
+    /* background-position: center; */
+    /* background-size: 100% 100%; */
+    background-color: #e8e8e8;
+    min-height: 20rem;
+}
+
+.wrapper .footer .footer--content {
+    font-size: 2rem;
+    text-align: justify;
+    position: relative;
+}
+
+.wrapper .footer .footer--content p {
+    padding: 1.8rem;
+    width: 40%;
+    position: absolute;
+    right: 0;
+    font-family: var(--font-family);
+    font-weight: 200;
+}
