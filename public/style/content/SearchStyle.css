@@ -57,8 +57,9 @@
 }
 
 .search--Box .EnterKeyword input {
-    width: 100%;
+    width: 98%;
     margin: auto;
+    padding: 1%;
 }
 
 .search--Box select, input {
