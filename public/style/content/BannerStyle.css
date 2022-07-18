@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Rowdies:wght@700&display=swap');
+.banner {
+    font-size: 4vw;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Rowdies', cursive;
+    text-align: center;
+    margin-top: 1rem;
+    color: white;
+    background-color: rgb(48 87 234);
+}
+
+@media screen and (max-width: 768px) {
+    .banner {
+        font-size: 6vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .banner {
+        font-size: 8vw;
+    }
+}

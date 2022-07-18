@@ -1,16 +1,16 @@
 @media screen and (max-width:1200px) {
     :root {
-        --widthSearch: 25%;
+        --widthSearch: 55%;
     }
 }
 
-@media screen and (max-width:950px) {
+/* @media screen and (max-width:950px) {
     :root {
         --widthSearch: 30%;
     }
-}
+} */
 
-@media screen and (max-width:750px) {
+@media screen and (max-width:768px) {
     :root {
         --widthSearch: 90%;
     }

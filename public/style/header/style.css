@@ -3,6 +3,7 @@
     height: fit-content;
     background-color: #3057ea;
     width: 100vw;
+    max-width: 100%;
 }
 
 .wrapper .header .logo {

@@ -1,0 +1,59 @@
+.result {
+    display: block;
+    margin: 15rem 15rem 6rem 15rem;
+    flex-wrap: 6%;
+    flex-wrap: wrap;
+}
+
+.result--GeoData {
+    width: 100%;
+}
+
+.result--GeoData > ul > li {
+    font-size: 1.4rem;
+    padding: 0.2rem;
+    list-style: none;
+}
+
+.result--GeoData > ul > li > a {
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.result--Depict {
+    margin-top: 2vh;
+    width: 100%;
+}
+
+.depictImage {
+    width: 60%;
+    height: 50vh;
+}
+
+.result--Depict > div > center > .depictImage {
+    margin-top: 2vh;
+}
+
+@media screen and (max-width: 1200px) {
+    .result {
+        margin: 2rem 2rem 2rem 2rem;
+    }
+    .depictImage {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 968px) {
+    
+}
+
+@media screen and (max-width: 768px) {
+    .result {
+        margin: 2rem 2rem 8rem 2rem;
+    }
+
+    .depictImage {
+        height: 50vh;
+        width: 100%;
+    }
+}
