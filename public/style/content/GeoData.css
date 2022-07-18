@@ -57,3 +57,31 @@
         width: 100%;
     }
 }
+
+.depictImage {
+    font-size:1vw; 
+    font-family: 'Segoe UI', san-serif;
+}
+
+@media screen and (max-width: 1200px) {
+    .depictImage {
+        font-size:2vw; 
+        font-family: 'Segoe UI', san-serif;
+    }
+}
+
+@media screen and (max-width: 968px) {
+    .depictImage {
+        font-size:2.2vw; 
+    }
+}
+@media screen and (max-width: 768px) {
+    .depictImage {
+        font-size:2.4vw; 
+    }
+}
+@media screen and (max-width: 468px) {
+    .depictImage {
+        font-size:3.4vw; 
+    }
+}

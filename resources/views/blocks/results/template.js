@@ -2,7 +2,7 @@
 var Case1 = `
     <div>
         <div id="result--GeoData" class="result--GeoData">
-            <center style="font-size: 3vw; font-family: 'Segoe UI', san-serif;">No results</center>
+            <center>No results</center>
         </div>
     </div>
 `;
@@ -23,7 +23,7 @@ var Case2 = `
             <center>
                 <iframe :src="shapefile[0].F" class="depictImage"></iframe>
                 <br>
-                <label for="depictImage" style="font-size:0.8vw; font-family: 'Segoe UI', san-serif;">Depicted image</label>
+                <label class="depictImage" for="depictImage">Depicted image</label>
                 <br>
                 <br>
             </center>
@@ -46,7 +46,7 @@ var Case3 = `
             <center>
                 <iframe name="depictImage" :src="item.F" class="depictImage" alt="Depict image from Google map"></iframe>
                 <br>
-                <label for="depictImage" style="font-size:0.8vw; font-family: 'Segoe UI', san-serif;">Depicted image</label>
+                <label class="depictImage" for="depictImage">Depicted image</label>
                 <br>
                 <br>
             </center>
