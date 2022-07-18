@@ -26,3 +26,8 @@
     margin-left: auto;
     margin-right: 0;
 }
+
+.footer center {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 2vh;
+}
