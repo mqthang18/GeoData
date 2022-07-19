@@ -1,6 +1,6 @@
 .result {
     display: block;
-    margin: 15rem 15rem 6rem 15rem;
+    margin: 15rem 15rem 8rem 15rem;
     flex-wrap: 6%;
     flex-wrap: wrap;
 }
@@ -28,6 +28,11 @@
 .depictImage {
     width: 60%;
     height: 50vh;
+}
+
+.welcomeChar {
+    font-size: 4vw;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .result--Depict > div > center > .depictImage {
