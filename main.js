@@ -135,13 +135,11 @@ async function RenderAPI(dataAPI) {
                 var selectP = i;
                 this.pagnigation = selectP;
                 console.log(this.pagnigation);
-           }
-        },
-        computed: {
+            },
             AddPivot() {
                 return this.pivot += 6;
             },
-            SubtractPivot() {
+            ResetPivot() {
                 return this.pivot = 0;
             }
         }

@@ -54,10 +54,10 @@ var Case3 = `
         </div>
         <br>
         <div class="pagnigation">
-            <button v-if="pivot >= 6" v-on:click="SubtractPivot()">
+            <button v-if="pivot >= 6" v-on:click="ResetPivot()">
                 <i class="fa fa-angle-double-left"></i>
             </button>
-            <button v-for="item in shapefile" v-if="shapefile.indexOf(item)>pivot" v-on:click="ChangePageIndex(shapefile.indexOf(item))">
+            <button v-for="item in shapefile" v-if="shapefile.indexOf(item)>pivot & shapefile.indexOf(item) <= pivot + 6 " v-on:click="ChangePageIndex(shapefile.indexOf(item))">
                 {{ shapefile.indexOf(item) }}
             </button>
             <button v-if="(shapefile.length > 6) & (pivot < shapefile.length - 6)" v-on:click="AddPivot()">
