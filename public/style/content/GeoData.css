@@ -9,6 +9,12 @@
     width: 100%;
 }
 
+.result--GeoData > center {
+    font-size: 3vw;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 600;
+}
+
 .result--GeoData > ul > li {
     font-size: 1.4rem;
     padding: 0.2rem;

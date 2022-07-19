@@ -1,6 +1,9 @@
 function GetData() {
     var getCondition = document.getElementById('Condition').value;
     var getKeyword = document.getElementById('KeyWord').value; 
+    // Handle value of getCondition and getKeyword
+    getCondition = CapitalFirstletter(getCondition.trim().replace(/  +/g, ' '));
+    getKeyword = CapitalFirstletter(getKeyword.trim().replace(/  +/g, ' '));
     if (getKeyword.length == 0) {
         alert("You have to enter desired location into search box!")
     } else {
@@ -14,6 +17,16 @@ function GetData() {
         var array = SearchParamURL(AddParamURL(getCondition,getKeyword));
         RetrieveData(array);
     }
+}
+
+function CapitalFirstletter(string) {
+    string = string.split(" "); 
+    string = string.map(
+        word => word[0].toUpperCase() + word.substr(1)
+    );
+    string = string.join(" ");
+    console.log(string);
+    return string; 
 }
 
 function AddParamURL(Condition,KeyWord) {
