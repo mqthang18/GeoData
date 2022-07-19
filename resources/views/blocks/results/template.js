@@ -33,18 +33,18 @@ var Case2 = `
 // Block 1 more than 2 provinces ===========
 var Case3 = `
     <div>
-        <div id="result--GeoData" class="result--GeoData" v-for="item in shapefile">
+        <div id="result--GeoData" class="result--GeoData">
             <ul>
-                <li>Country: {{ item.A }} </li>
-                <li>Province: {{ item.B }} </li>
-                <li>City/District: {{ item.C }} </li>
-                <li>License: {{ item.D }} </li>
-                <li>Describe: {{ item.E }} </li>
-                <li>Attachment: <a :href="item.G">Download</a> <i class="fa fa-download"></i> </li>
+                <li>Country: {{ shapefile[pagnigation].A }} </li>
+                <li>Province: {{ shapefile[pagnigation].B }} </li>
+                <li>City/District: {{ shapefile[pagnigation].C }} </li>
+                <li>License: {{ shapefile[pagnigation].D }} </li>
+                <li>Describe: {{ shapefile[pagnigation].E }} </li>
+                <li>Attachment: <a :href="shapefile[pagnigation].G">Download</a> <i class="fa fa-download"></i> </li>
             </ul>
 
             <center>
-                <iframe name="depictImage" :src="item.F" class="depictImage" alt="Depict image from Google map"></iframe>
+                <iframe name="depictImage" :src="shapefile[pagnigation].F" class="depictImage" alt="Depict image from Google map"></iframe>
                 <br>
                 <label class="depictImage" for="depictImage">Depicted image</label>
                 <br>
@@ -52,6 +52,46 @@ var Case3 = `
             </center>
             <hr>
         </div>
+        <br>
+        <div class="pagnigation">
+            <button v-if="pivot >= 6" v-on:click="SubtractPivot()">
+                <i class="fa fa-angle-double-left"></i>
+            </button>
+            <button v-for="item in shapefile" v-if="shapefile.indexOf(item)>pivot" v-on:click="ChangePageIndex(shapefile.indexOf(item))">
+                {{ shapefile.indexOf(item) }}
+            </button>
+            <button v-if="(shapefile.length > 6) & (pivot < shapefile.length - 6)" v-on:click="AddPivot()">
+                <i class="fa fa-angle-double-right"></i>
+            </button>
+        </div>
     </div>
 `;
               
+// var Case3 = `
+//     <div>
+//         <div id="result--GeoData" class="result--GeoData" v-for="item in shapefile">
+//             <ul>
+//                 <li>Country: {{ item.A }} </li>
+//                 <li>Province: {{ item.B }} </li>
+//                 <li>City/District: {{ item.C }} </li>
+//                 <li>License: {{ item.D }} </li>
+//                 <li>Describe: {{ item.E }} </li>
+//                 <li>Attachment: <a :href="item.G">Download</a> <i class="fa fa-download"></i> </li>
+//             </ul>
+
+//             <center>
+//                 <iframe name="depictImage" :src="item.F" class="depictImage" alt="Depict image from Google map"></iframe>
+//                 <br>
+//                 <label class="depictImage" for="depictImage">Depicted image</label>
+//                 <br>
+//                 <br>
+//             </center>
+//             <hr>
+//         </div>
+//         <div class="pagnigation">
+//             <button v-for="item in shapefile">
+//                 {{ shapefile.indexOf(item) }}
+//             </button>
+//         </div>
+//     </div>
+// `;

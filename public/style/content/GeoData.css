@@ -34,6 +34,23 @@
     margin-top: 2vh;
 }
 
+.pagnigation {
+    padding-bottom: 6vh;
+    margin: auto;
+    width: max-content;
+}
+
+.pagnigation > button {
+    width: 3rem;
+    height: 3rem;
+    border: 0.2px rgb(168, 168, 168);
+    cursor: pointer;
+}
+
+.pagnigation > button:hover {
+    background-color: rgb(162, 162, 162);
+}
+
 @media screen and (max-width: 1200px) {
     .result {
         margin: 2rem 2rem 2rem 2rem;

@@ -50,7 +50,7 @@ function RetrieveData(array) {
     fetch (APIurl).then(res=>res.text()).then(rep=>{
         // console.log(rep)
         var dataset = JSON.parse(rep.substr(47).slice(0,-2));
-        var data = HandleAPI(dataset)
+        var data = HandleAPI(dataset);
         
         RenderAPI(data);
     })
@@ -106,6 +106,8 @@ async function RenderAPI(dataAPI) {
         template: textHTML,
         data: {
             shapefile: dataAPI,
+            pagnigation: 0,
+            pivot: 0,
             StyleShow: {
                 display: 'none'
             }           
@@ -128,12 +130,24 @@ async function RenderAPI(dataAPI) {
                         this.StyleShow.display = "block";
                     }
                 }  
+            },
+            ChangePageIndex(i) {
+                var selectP = i;
+                this.pagnigation = selectP;
+                console.log(this.pagnigation);
+           }
+        },
+        computed: {
+            AddPivot() {
+                return this.pivot += 6;
+            },
+            SubtractPivot() {
+                return this.pivot = 0;
             }
         }
     })
     app.DisplayGeoData();
     // console.log(document.getElementById("content").lastElementChild);
-    
     // console.log(app.shapefile);
 }
 
