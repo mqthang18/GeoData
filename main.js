@@ -22,12 +22,28 @@ function GetData() {
 function CapitalFirstletter(string) {
     string = string.split(" "); 
     string = string.map(
-        word => word[0].toUpperCase() + word.substr(1)
+        word => stringToSlug(word)
     );
     string = string.join(" ");
     console.log(string);
     return string; 
 }
+
+function stringToSlug(str) {
+    // remove accents
+    var from = "àáãảạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệđùúủũụưừứửữựòóỏõọôồốổỗộơờớởỡợìíỉĩịäëïîöüûñçýỳỹỵỷ",
+        to   = "aaaaaaaaaaaaaaaaaeeeeeeeeeeeduuuuuuuuuuuoooooooooooooooooiiiiiaeiiouuncyyyyy";
+    for (var i=0, l=from.length ; i < l ; i++) {
+      str = str.replace(RegExp(from[i], "gi"), to[i]);
+    }
+  
+    str = str.toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9\-]/g, '-')
+          .replace(/-+/g, '-');
+    str = str[0].toUpperCase() + str.substr(1);
+    return str;
+  }
 
 function AddParamURL(Condition,KeyWord) {
     var url = window.location.href; 
