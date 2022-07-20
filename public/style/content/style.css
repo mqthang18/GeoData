@@ -4,7 +4,7 @@
     --background-color: rgb(95, 95, 224);
     --fontSize-content: 2rem; 
 
-    --widthSearch--Box: 80%;
+    --widthSearch--Box: 100%;
     --widthSearch--Button: calc(100% - var(--widthSearch--Box) );
 }
 
@@ -12,6 +12,4 @@
     width: 100vw;
     max-width: 100%;
     min-height: 60vh;
-    /* margin-bottom: 1.6vh; */
-    /* position: relative; */
 }

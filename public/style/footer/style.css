@@ -2,8 +2,8 @@
 /*================= Footer ===================*/
 .wrapper .footer {
     /* position: absolute; */
-    bottom: 0;
-    position: fixed;
+    /* bottom: 0; */
+    /* position: fixed; */
     width: 100%;
     /* background-image: linear-gradient(rgba(165, 164, 194, 0.308), rgba(165, 164, 194, 0.308)), url("/public/img/Banner/Footer/Banner.jpg"); */
     /* background-repeat: no-repeat; */

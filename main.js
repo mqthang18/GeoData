@@ -25,7 +25,6 @@ function CapitalFirstletter(string) {
         word => stringToSlug(word)
     );
     string = string.join(" ");
-    console.log(string);
     return string; 
 }
 
@@ -91,7 +90,6 @@ function HandleAPI(dataset) {
     var data = [];
     var dict =  {};
     var keys = [];
-    // console.log(dataset);
     // Get datasetOne cols and rows
     var cols = dataset.table.cols;
     var rows = dataset.table.rows;
@@ -117,64 +115,249 @@ function HandleAPI(dataset) {
     return data;
 }
 
-// Vue instance
-async function RenderAPI(dataAPI) {
-    'use strict';
-    var lengthDataAPI =  dataAPI.length;
-    var textHTML;
-    if (lengthDataAPI == 0) {
-        textHTML = Case1; 
-    } else if (lengthDataAPI == 1) {
-        textHTML = Case2; 
-    } else if (lengthDataAPI > 1) {
-        textHTML = Case3; 
-    }
-    
-    var app = new Vue({
-        el: "#app", 
-        template: textHTML,
+{
+    "use strict";
+
+    // Vue instance Search Element
+    var appSearch = new Vue({
+        el: "#ConditionSearch", 
         data: {
-            shapefile: dataAPI,
-            pagnigation: 0,
-            pivot: 0,
-            StyleShow: {
-                display: 'none'
-            }           
+            showInput1: false,
+            showInput2: false,
+            showInput3: false,
+            GeoDataDescription: null
         },
         methods: {
-            DisplayGeoData: function() {
-                // var lengthDataAPI = this.shapefile.length;
-                // console.log(lengthDataAPI)
-              
-                // document.getElementById("content").lastElementChild.setAttribute('id', 'app');   
-                // document.getElementById("content").lastElementChild.setAttribute('class', 'result');
-                var el = document.getElementById("result--GeoData").parentElement;
-                console.log(el);
-                el.setAttribute('id', 'app');
-                el.setAttribute('class', 'result'); 
-                if (this.StyleShow.display == "block") {
-                    this.StyleShow.display = "none";
-                } else {
-                    if (this.lengthDataAPI > 0) {
-                        this.StyleShow.display = "block";
+            CatchCheckEvent(id) {
+                if (id == 'Country') {
+                    if (this.showInput1 == false) {
+                        this.showInput1 = true;
+                        return;
+                    } else {
+                        this.showInput1 = false;
+                        return; 
                     }
-                }  
+                } else if (id == "Province") {
+                    if (this.showInput2 == false) {
+                        return this.showInput2 = true;
+                    } else return this.showInput2 = false; 
+                } else if (id == "District") {
+                    if (this.showInput3 == false) {
+                        return this.showInput3 = true;
+                    } else return this.showInput3 = false; 
+                }
             },
-            ChangePageIndex(i) {
-                var selectP = i;
-                this.pagnigation = selectP;
-                console.log(this.pagnigation);
+            getKeyByValue(object, value) {
+                return Object.keys(object).find(key => object[key] === value);
             },
-            AddPivot() {
-                return this.pivot += 6;
+            RetrieveDistrictData(id = null, CountryCode = null, ProvinceCode = null, DistrictCode = null) {
+                if (id != null) {
+                    var APIurl = "https://docs.google.com/spreadsheets/d/"+id+"/gviz/tq?sheet=";
+                    var queryStr = 'Select *';
+                    
+                    if (DistrictCode !== null) queryStr = queryStr + ' where A = "' + DistrictList[DistrictCode] +'"';
+                    console.log(queryStr);
+                    var query = encodeURIComponent(queryStr);
+                    APIurl = APIurl + 'AdminstrativeBoundary' + '&tq=' + query;
+                    console.log(APIurl);
+                    fetch (APIurl).then(res=>res.text()).then(rep=>{
+                        // console.log(rep)
+                        var dataset = JSON.parse(rep.substr(47).slice(0,-2));
+                        var data = HandleAPI(dataset);
+                        if (data.length > 1) {
+                            data.shift();
+                        }
+                        
+                        // console.log(data);
+                        RenderAPI(data, CountryCode, ProvinceCode, DistrictCode);
+                    })
+                } else {
+                    RenderAPI(null, null, null, null);
+                }
+                
             },
-            ResetPivot() {
-                return this.pivot = 0;
-            }
+            RetrieveProvinceData(id = null, CountryCode = null, ProvinceCode = null, DistrictCode = null) {
+                if (id != null) {
+                    console.log(id);
+                    var APIurl1 = "https://docs.google.com/spreadsheets/d/"+id[0]+"/gviz/tq?sheet=";
+                    var APIurl2 = "https://docs.google.com/spreadsheets/d/"+id[1]+"/gviz/tq?sheet=";
+
+                    var queryStr1 = 'Select *';
+                    var queryStr2 = 'Select * where A = "' + ProvinceList[ProvinceCode] + '"';
+
+                    console.log(queryStr1);
+                    console.log(queryStr2);
+
+                    var query1 = encodeURIComponent(queryStr1);
+                    var query2 = encodeURIComponent(queryStr2);
+                    
+                    APIurl1 = APIurl1 + 'AdminstrativeBoundary' + '&tq=' + query1;
+                    APIurl2 = APIurl2 + 'AdminstrativeBoundary' + '&tq=' + query2;
+
+                    fetch (APIurl1).then(res=>res.text()).then(rep=>{
+                        // console.log(rep)
+                        var dataset1 = JSON.parse(rep.substr(47).slice(0,-2));
+                        var data1 = HandleAPI(dataset1);
+                        if (data1.length > 1) {
+                            data1.shift();
+                        }
+                        
+                        fetch (APIurl2).then(res=>res.text()).then(rep=>{
+                            var dataset2 = JSON.parse(rep.substr(47).slice(0,-2));
+                            var data2 = HandleAPI(dataset2);
+                            // console.log(data2);
+                            var data = data2;
+                            for (var i = 0; i < data1.length; i++) {
+                                data.push(data1[i]);
+                            }
+                            console.log(data);
+                            RenderAPI(data, CountryCode, ProvinceCode, DistrictCode);
+                        })                    
+                    })
+                } else {
+                    RenderAPI(null, null, null, null);
+                }
+            },
+            GetDataInput() {
+                var arr = []; 
+                if (this.showInput1 == true) {
+                    var Country = document.getElementById('input-Country');
+                    if (Country.value.length != 0) 
+                        arr.push({
+                            Country: CapitalFirstletter(Country.value.trim().replace(/  +/g, ' '))
+                        }); 
+                    
+                }
+                if (this.showInput2 == true) {
+                    var Province = document.getElementById('input-Province');
+                    if (Province.value.length != 0) 
+                        arr.push({
+                            Province: CapitalFirstletter(Province.value.trim().replace(/  +/g, ' '))
+                        }); 
+                }
+                if (this.showInput3 == true) {
+                    var District = document.getElementById('input-District');
+                    if (District.value.length != 0) 
+                        arr.push({
+                            District: CapitalFirstletter(District.value.trim().replace(/  +/g, ' '))
+                        }); 
+                };
+                if (arr.length == 0) alert('You have to enter desired location into search box!');
+
+                var label = ["Province", "Country", "District"]; 
+                var dict = []; 
+                
+                arr.forEach(element => {
+                    switch (Object.keys(element)[0]) {
+                        case 'Country': 
+                            dict["Country"] = element.Country;
+                            break;
+                        case 'Province':
+                            dict["ProvinceCode"] = this.getKeyByValue(ProvinceList, element.Province); 
+                            break;
+                        case 'District':
+                            dict["DistrictCode"] = this.getKeyByValue(DistrictList, element.District);
+                            break;
+                    }
+                });
+                var newDict;
+                MngProv.forEach(element=>{
+                    if (Object.values(dict).includes(element.ProvinceCode) || Object.values(dict).includes(element.Country) || Object.keys(element.District).includes(dict['DistrictCode'])) {
+                            newDict = {
+                                ProvinceSheetID: element.ProvinceSheetID,
+                                DistrictSheetID: element.DistrictSheetID,
+                                Country: element.Country,
+                                ProvinceCode: element.ProvinceCode,
+                                DistrictCode: dict['DistrictCode']
+                            } 
+                    }
+                });
+                if (newDict == undefined) this.RetrieveDistrictData(null,null,null,null)
+                else if (Object.keys(dict).includes('DistrictCode')) {
+                    console.log('Chỉ Search huyen/thanh pho')
+                    this.RetrieveDistrictData(
+                        newDict.DistrictSheetID, 
+                        newDict.Country, 
+                        newDict.ProvinceCode, 
+                        newDict.DistrictCode
+                    );
+                } else {
+                    console.log("Search ca tinh");
+                    this.RetrieveProvinceData(
+                        [newDict.DistrictSheetID, newDict.ProvinceSheetID],
+                        newDict.Country, 
+                        newDict.ProvinceCode, 
+                        newDict.DistrictCode
+                    );
+                }
+            },
         }
     })
-    app.DisplayGeoData();
-    // console.log(document.getElementById("content").lastElementChild);
-    // console.log(app.shapefile);
-}
 
+
+
+    // Vue instance Render Element
+    async function RenderAPI(dataAPI = null, Country = null, ProvinceCode = null, District = null) {
+        // 'use strict';
+        var lengthDataAPI;
+        var textHTML;
+        if (dataAPI !== null) {
+            lengthDataAPI = dataAPI.length;
+            if (lengthDataAPI == 0) {
+                textHTML = Case1; 
+            } else if (lengthDataAPI == 1) {
+                textHTML = Case2; 
+            } else if (lengthDataAPI > 1) {
+                textHTML = Case3; 
+            }
+        } else {
+            textHTML = Case1; 
+        }
+        var app = new Vue({
+            el: "#app", 
+            template: textHTML,
+            data: {
+                Country: Country,
+                Province: ProvinceList[ProvinceCode],
+                District: District, 
+                shapefile: dataAPI,
+                pagnigation: 0,
+                pivot: 0,
+                StyleShow: {
+                    display: 'none'
+                }           
+            },
+            methods: {
+                DisplayGeoData: function() {
+                    // console.log(Province);
+                    var el = document.getElementById("result--GeoData").parentElement;
+                    // console.log(el);
+                    el.setAttribute('id', 'app');
+                    el.setAttribute('class', 'result'); 
+                    if (this.StyleShow.display == "block") {
+                        this.StyleShow.display = "none";
+                    } else {
+                        if (this.lengthDataAPI > 0) {
+                            this.StyleShow.display = "block";
+                        }
+                    }  
+                },
+                ChangePageIndex(i) {
+                    var selectP = i;
+                    this.pagnigation = selectP;
+                    // console.log(this.pagnigation);
+                },
+                AddPivot() {
+                    return this.pivot += 6;
+                },
+                ResetPivot() {
+                    return this.pivot = 0;
+                }
+            }
+        })
+        app.DisplayGeoData();
+        // console.log(document.getElementById("content").lastElementChild);
+        // console.log(app.shapefile);
+    }
+
+}

@@ -1,6 +1,6 @@
 .result {
     display: block;
-    margin: 15rem 15rem 8rem 15rem;
+    margin: 0rem 15rem 0rem 15rem;
     flex-wrap: 6%;
     flex-wrap: wrap;
 }
@@ -42,7 +42,8 @@
 }
 
 .result--Depict > div > center > .depictImage {
-    margin-top: 2vh;
+    /* margin-top: 2vh; */
+    color: black;
 }
 
 .pagnigation {
@@ -64,15 +65,17 @@
 
 @media screen and (max-width: 1200px) {
     .result {
-        margin: 2rem 2rem 2rem 2rem;
+        /* margin: 2rem 2rem 8rem 2rem; */
     }
     .depictImage {
         width: 90%;
     }
 }
 
-@media screen and (max-width: 968px) {
-    
+@media screen and (max-width: 995px) {
+    .result {
+        margin: 2rem 2rem 8rem 2rem;
+    }
 }
 
 @media screen and (max-width: 768px) {

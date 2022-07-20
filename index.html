@@ -30,22 +30,44 @@
             <div class="banner">
                 <h1>Adminstrative boundary of Viet Nam</h1>
             </div>
-            <div class="search">
+            <div id="ConditionSearch" class="search">
                 <div class="search--Box">
                     <div class="ConditionSearch">
-                        <label for="Condition">Select</label>
-                        <select name="Condition" id="Condition">
-                            <option value="1">Province</option>
-                            <option value="2">District/City</option>
-                        </select>
-                    </div>
-                    <div class="EnterKeyword">
-                        <input type="text" name="KeyWord" id="KeyWord" autocomplete="node" required>
+                        <fieldset class="ConditionSearch">
+                            <legend>Choose condition to search</legend>
+                            <div>
+                                <!-- <input type="checkbox" id="Country" name="Country" v-on:change="CatchCheckEvent('Country')"> <label for="Country">Country</label> -->
+                                <!-- <br> -->
+                                <input type="checkbox" id="Province" name="Province" v-on:change="CatchCheckEvent('Province')"> <label for="Province">Province</label>
+                                <br>
+                                <input type="checkbox" id="District" name="District" v-on:change="CatchCheckEvent('District')"> <label for="District">District</label>
+                            </div>
+                        </fieldset>
                     </div>
                 </div>
-                <div class="search--Button">
-                    <button onclick="GetData()"><i class="fa">&#xf002;</i></button>
+                
+                <div class="EnterDataSearch">
+                    <!-- <div class="EnterKeyword" v-if="showInput1">
+                        <label for="Country">Country</label>
+                        <br><br>
+                        <input type="text" name="input-Country" id="input-Country" autocomplete="node" required>
+                    </div> -->
+                    <div class="EnterKeyword" v-if="showInput2">
+                        <label for="Province">Province</label>
+                        <br><br>
+                        <input type="text" name="input-Province" id="input-Province" autocomplete="node" required>
+                    </div>
+                    <div class="EnterKeyword" v-if="showInput3">
+                        <label for="District">District</label>
+                        <br><br>
+                        <input type="text" name="input-District" id="input-District" autocomplete="node" required>
+                    </div>
+                    <br><br><br><br><br><br><br>
+                    <div class="search--Button">
+                        <button v-on:click="GetDataInput()"><i class="fa">&#xf002;</i></button>
+                    </div>
                 </div>
+                
             </div>  
             <div id="app" class="result">   
                 <h2 class="welcomeChar">Welcome to the page!</h2>            
@@ -62,6 +84,7 @@
 
     <script src="main.js"></script>
     <script src="./resources/views/blocks/results/template.js"></script>
+    <script src="./resources/views/blocks/results/queryAPI.js"></script>
 </body>
 </html>
 
