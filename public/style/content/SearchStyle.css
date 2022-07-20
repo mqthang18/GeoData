@@ -131,8 +131,4 @@
     .search {
         width: calc(var(--widthSearch) + 5%);
     }
-
-    .search--Button {
-        width: 12vw;
-    }
 }
