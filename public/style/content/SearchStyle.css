@@ -11,6 +11,7 @@
 
 .search label, select, button, input {
     font-size: var(--fontSize-content);
+    padding-left: 10px;
     font-family: 'Inter', sans-serif;
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -53,6 +54,9 @@
     font-weight: 700;
 }
 
+.ConditionSearch input {
+    transform: scale(1.5);
+}
 
 .EnterDataSearch {
     padding: 0.6rem 1rem 0.6rem 0.6rem;
