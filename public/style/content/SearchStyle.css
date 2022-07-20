@@ -117,6 +117,10 @@
     .ConditionSearch legend, label {
         font-size: 3vw;
     }
+
+    .search--Button {
+        width: 12vw;
+    }
 }
 
 @media screen and (max-width: 500px) {
