@@ -40,8 +40,8 @@
 
 .search--Box .ConditionSearch {
     display: flex;
-    width: 100%;
-    padding: 0.6rem 1rem 0.6rem 0.6rem;
+    width: 98%;
+    padding: 0.6rem 1% 0.6rem 1%;
     margin: auto;
     border: none;
 }
@@ -126,5 +126,9 @@
     
     .search {
         width: calc(var(--widthSearch) + 5%);
+    }
+
+    .search--Button {
+        width: 12vw;
     }
 }
