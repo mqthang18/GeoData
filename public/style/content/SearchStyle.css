@@ -11,13 +11,13 @@
 
 .search label, select, button, input {
     font-size: var(--fontSize-content);
-    padding-left: 10px;
     font-family: 'Inter', sans-serif;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
 .search label {
     color: white;
+    padding-left: 10px;
 }
 
 .search button {
