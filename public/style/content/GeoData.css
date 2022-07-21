@@ -1,3 +1,13 @@
+.loadingGIF {
+ display: none;
+ font-size: 100px;
+ color: green;
+ position: fixed;
+ top: 40%;
+ right: 0%;
+ left: 0%;
+}
+
 .result {
     display: block;
     margin: 0rem 15rem 0rem 15rem;
@@ -55,7 +65,7 @@
 .pagnigation > button {
     width: 3rem;
     height: 3rem;
-    border: 0.2px rgb(168, 168, 168);
+    border: 0.2px rgb(208, 208, 208);
     cursor: pointer;
 }
 

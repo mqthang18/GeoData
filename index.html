@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./public/style/content/BannerStyle.css">
     <link rel="stylesheet" href="./public/style/content/SearchStyle.css">
     <link rel="stylesheet" href="./public/style/content/GeoData.css">
+    <link rel="stylesheet" href="./public/style/content/modal.css">
     <link rel="stylesheet" href="./public/style/footer/style.css">
     <link rel="stylesheet" href="./public/style/content/resStyle.css">
 </head>
@@ -38,7 +39,7 @@
                             <div>
                                 <!-- <input type="checkbox" id="Country" name="Country" v-on:change="CatchCheckEvent('Country')"> <label for="Country">Country</label> -->
                                 <!-- <br> -->
-                                <input type="checkbox" id="Province" name="Province" v-on:change="CatchCheckEvent('Province')">  <label for="Province">Province</label>
+                                <input type="checkbox" id="Province" name="Province" v-on:change="CatchCheckEvent('Province')" checked>  <label for="Province">Province</label>
                                 <br>
                                 <input type="checkbox" id="District" name="District" v-on:change="CatchCheckEvent('District')">  <label for="District">District</label>
                             </div>
@@ -71,8 +72,17 @@
                 </div>
                 
             </div>  
+            <div id="modal">
+                <div id="PopUp" class="PopUp">
+                    <h3>You have to enter your desired location into search box!</h3>
+                    <center><button onclick="ClosePopUp()">I am understand!</button></center>
+                </div>
+            </div>
+            <div id="loadingGIF" class="loadingGIF">
+                <center><i class="fa fa-spinner fa-spin"></i></center>
+            </div>
             <div id="app" class="result">   
-                <h2 class="welcomeChar">Welcome to the page!</h2>            
+                <h2 id="welcomeChar" class="welcomeChar">Welcome to the page!</h2>            
             </div>
         </div>
         <div class="footer">

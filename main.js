@@ -5,15 +5,8 @@ function GetData() {
     getCondition = CapitalFirstletter(getCondition.trim().replace(/  +/g, ' '));
     getKeyword = CapitalFirstletter(getKeyword.trim().replace(/  +/g, ' '));
     if (getKeyword.length == 0) {
-        alert("You have to enter desired location into search box!")
+        OpenPopUp();
     } else {
-        // if (document.getElementById('result') != null) {
-        //     var ele = document.getElementById('content'); 
-        //     console.log(ele.lastChild);
-        //     ele.lastChild.innerHTML = '';
-        //     ele.lastChild.setAttribute('id', 'app');
-        //     ele.lastChild.setAttribute('class', 'result');
-        // };
         var array = SearchParamURL(AddParamURL(getCondition,getKeyword));
         RetrieveData(array);
     }
@@ -84,6 +77,17 @@ function RetrieveData(array) {
     })
 }
 
+function OpenPopUp() {
+    var ele = document.getElementById('PopUp');
+    // console.log(window.getComputedStyle(ele).visibility);
+    ele.style.display = 'block';
+}
+
+function ClosePopUp() {
+    var ele = document.getElementById('PopUp');
+    ele.style.display = 'none';
+}
+
 // Handle API data is queried 
 function HandleAPI(dataset) {
     // Define variable
@@ -123,7 +127,7 @@ function HandleAPI(dataset) {
         el: "#ConditionSearch", 
         data: {
             showInput1: false,
-            showInput2: false,
+            showInput2: true,
             showInput3: false,
             GeoDataDescription: null
         },
@@ -154,7 +158,7 @@ function HandleAPI(dataset) {
                 if (id != null) {
                     var APIurl = "https://docs.google.com/spreadsheets/d/"+id+"/gviz/tq?sheet=";
                     var queryStr = 'Select *';
-                    
+                    console.log(DistrictCode);
                     if (DistrictCode !== null) queryStr = queryStr + ' where A = "' + DistrictList[DistrictCode] +'"';
                     console.log(queryStr);
                     var query = encodeURIComponent(queryStr);
@@ -168,7 +172,7 @@ function HandleAPI(dataset) {
                             data.shift();
                         }
                         
-                        // console.log(data);
+                        console.log(data);
                         RenderAPI(data, CountryCode, ProvinceCode, DistrictCode);
                     })
                 } else {
@@ -210,7 +214,7 @@ function HandleAPI(dataset) {
                             for (var i = 0; i < data1.length; i++) {
                                 data.push(data1[i]);
                             }
-                            console.log(data);
+                            // console.log(data);
                             RenderAPI(data, CountryCode, ProvinceCode, DistrictCode);
                         })                    
                     })
@@ -220,6 +224,7 @@ function HandleAPI(dataset) {
             },
             GetDataInput() {
                 var arr = []; 
+                
                 if (this.showInput1 == true) {
                     var Country = document.getElementById('input-Country');
                     if (Country.value.length != 0) 
@@ -242,54 +247,81 @@ function HandleAPI(dataset) {
                             District: CapitalFirstletter(District.value.trim().replace(/  +/g, ' '))
                         }); 
                 };
-                if (arr.length == 0) alert('You have to enter desired location into search box!');
-
-                var label = ["Province", "Country", "District"]; 
-                var dict = []; 
-                
-                arr.forEach(element => {
-                    switch (Object.keys(element)[0]) {
-                        case 'Country': 
-                            dict["Country"] = element.Country;
-                            break;
-                        case 'Province':
-                            dict["ProvinceCode"] = this.getKeyByValue(ProvinceList, element.Province); 
-                            break;
-                        case 'District':
-                            dict["DistrictCode"] = this.getKeyByValue(DistrictList, element.District);
-                            break;
+                if (arr.length == 0) OpenPopUp();
+                else {
+                    var ele1 = document.getElementById('loadingGIF');
+                    var ele2 = document.getElementById('welcomeChar');
+                    console.log(ele2);
+                    if (ele2 !== null) {
+                        ele2.style.display = "none"; 
+                    }   
+                    
+                    console.log(window.getComputedStyle(ele1).display);
+                    if (window.getComputedStyle(ele1).display == "none") {
+                        ele1.style.display = "block";
+                    } else {
+                        ele1.style.display = "none";
                     }
-                });
-                var newDict;
-                MngProv.forEach(element=>{
-                    if (Object.values(dict).includes(element.ProvinceCode) || Object.values(dict).includes(element.Country) || Object.keys(element.District).includes(dict['DistrictCode'])) {
-                            newDict = {
-                                ProvinceSheetID: element.ProvinceSheetID,
-                                DistrictSheetID: element.DistrictSheetID,
-                                Country: element.Country,
-                                ProvinceCode: element.ProvinceCode,
-                                DistrictCode: dict['DistrictCode']
-                            } 
+                    
+                    var label = ["Province", "Country", "District"]; 
+                    var dict = []; 
+                    
+                    arr.forEach(element => {
+                        switch (Object.keys(element)[0]) {
+                            case 'Country': 
+                                dict["Country"] = element.Country;
+                                break;
+                            case 'Province':
+                                dict["ProvinceCode"] = this.getKeyByValue(ProvinceList, element.Province); 
+                                // if (dict.ProvinceCode === undefined) {
+                                //     alert("Your province is entered then don't find in list province of Viet Nam");
+                                // }
+                                break;
+                            case 'District':
+                                dict["DistrictCode"] = this.getKeyByValue(DistrictList, element.District);
+                                // if (dict.District === undefined) {
+                                //     alert("Your district is entered then don't find in list district of Viet Nam");
+                                // }
+                                break;
+                        }
+                    });
+                    console.log(dict);
+                    if (!Object.values(dict).includes(undefined)) {
+                        var newDict;
+                        MngProv.forEach(element=>{
+                            if (Object.values(dict).includes(element.ProvinceCode) || Object.values(dict).includes(element.Country) || Object.keys(element.District).includes(dict['DistrictCode'])) {
+                                    newDict = {
+                                        ProvinceSheetID: element.ProvinceSheetID,
+                                        DistrictSheetID: element.DistrictSheetID,
+                                        Country: element.Country,
+                                        ProvinceCode: element.ProvinceCode,
+                                        DistrictCode: dict['DistrictCode']
+                                    } 
+                            }
+                        });
+                        if (newDict == undefined) this.RetrieveDistrictData(null,null,null,null)
+                        else if (Object.keys(dict).includes('DistrictCode')) {
+                            console.log('Chỉ Search huyen/thanh pho')
+                            this.RetrieveDistrictData(
+                                newDict.DistrictSheetID, 
+                                newDict.Country, 
+                                newDict.ProvinceCode, 
+                                newDict.DistrictCode
+                            );
+                        } else {
+                            console.log("Search ca tinh");
+                            this.RetrieveProvinceData(
+                                [newDict.DistrictSheetID, newDict.ProvinceSheetID],
+                                newDict.Country, 
+                                newDict.ProvinceCode, 
+                                newDict.DistrictCode
+                            );
+                        }
+                    } else {
+                        RenderAPI(null, null, null, null)
                     }
-                });
-                if (newDict == undefined) this.RetrieveDistrictData(null,null,null,null)
-                else if (Object.keys(dict).includes('DistrictCode')) {
-                    console.log('Chỉ Search huyen/thanh pho')
-                    this.RetrieveDistrictData(
-                        newDict.DistrictSheetID, 
-                        newDict.Country, 
-                        newDict.ProvinceCode, 
-                        newDict.DistrictCode
-                    );
-                } else {
-                    console.log("Search ca tinh");
-                    this.RetrieveProvinceData(
-                        [newDict.DistrictSheetID, newDict.ProvinceSheetID],
-                        newDict.Country, 
-                        newDict.ProvinceCode, 
-                        newDict.DistrictCode
-                    );
                 }
+                
             },
         }
     })
@@ -313,6 +345,10 @@ function HandleAPI(dataset) {
         } else {
             textHTML = Case1; 
         }
+
+        var ele = document.getElementById('loadingGIF');
+        ele.style.display = "none";
+
         var app = new Vue({
             el: "#app", 
             template: textHTML,
@@ -345,6 +381,22 @@ function HandleAPI(dataset) {
                 ChangePageIndex(i) {
                     var selectP = i;
                     this.pagnigation = selectP;
+                    
+                    var ele = document.getElementsByClassName('btn');
+
+                    console.log(ele);
+                    var key;
+                    for (var i = 0; i < ele.length; i++) {
+                        // console.log(ele[i]);
+                        key = appSearch.getKeyByValue(ele , ele[i]);
+                        // console.log(key + '-' + selectP);
+                        if (key == selectP-this.pivot) {
+                            ele[i].setAttribute('style', 'background-color: rgb(162, 162, 162)');
+                         } 
+                        else if (ele[i] != selectP) {
+                            ele[i].setAttribute('style', 'background-color: rgb(237 237 237)');   
+                        }
+                    }
                     // console.log(this.pagnigation);
                 },
                 AddPivot() {
@@ -356,6 +408,7 @@ function HandleAPI(dataset) {
             }
         })
         app.DisplayGeoData();
+        app.ChangePageIndex(app.pagnigation);
         // console.log(document.getElementById("content").lastElementChild);
         // console.log(app.shapefile);
     }

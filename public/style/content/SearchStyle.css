@@ -6,7 +6,7 @@
     /* display: flex; */
     background: var(--background-color);
     border-radius: 0.8rem;
-    box-shadow: 4px 7px 15px 1px grey
+    box-shadow: 4px 7px 15px 1px grey;
 }
 
 .search label, select, button, input {
@@ -48,7 +48,7 @@
 }
 
 .ConditionSearch legend, label {
-    font-size: 1.2vw;
+    font-size: 20px;
     color: white;
     font-family: 'Segoe UI', sans-serif;
     font-weight: 700;
@@ -63,7 +63,9 @@
     margin: auto;
     position: relative;
 }
-
+.EnterKeyword {
+    margin-bottom: 1.5vh;
+}
 .EnterKeyword > input {
     width: 96%;
     border-radius: 5px;
@@ -97,9 +99,9 @@
         width: calc(var(--widthSearch) + 0%);
         /* position: absolute; */
     }
-    .ConditionSearch legend, label {
-        font-size: 1.6vw;
-    }
+    /* .ConditionSearch legend, label {
+        font-size: 18px;
+    } */
 }
 
 
@@ -110,7 +112,7 @@
         position: unset;
     }
     .ConditionSearch legend, label {
-        font-size: 2vw;
+        font-size: 18px;
     }
 }
 
@@ -118,9 +120,9 @@
     .search {
         width: calc(var(--widthSearch) + 5%);
     }
-    .ConditionSearch legend, label {
-        font-size: 3vw;
-    }
+    /* .ConditionSearch legend, label {
+        font-size: 16px;
+    } */
 
     .search--Button {
         width: 12vw;
@@ -128,9 +130,9 @@
 }
 
 @media screen and (max-width: 500px) {
-    .ConditionSearch legend, label {
+    /* .ConditionSearch legend, label {
         font-size: 5vw;
-    }
+    } */
     
     .search {
         width: calc(var(--widthSearch) + 5%);
