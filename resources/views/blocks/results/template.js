@@ -15,12 +15,18 @@ var Case2 = `
     <div>
         <div id="result--GeoData" class="result--GeoData">
             <ul>
-                <li>Country: {{ Country }} </li>
-                <li>Province: {{ Province }} </li>
-                <li>City/District: {{ shapefile[0].A }} </li>
-                <li>License: {{ shapefile[0].O }} </li>
-                <li>Describe: {{ shapefile[0].E }} </li>
-                <li>Attachment: <a :href="shapefile[0].B">Download</a> <i class="fa fa-download"></i> </li>
+            <li>Country: {{ Country }} </li>
+            <li>Province: {{ Province }} </li>
+            <li>GeoNames: {{ shapefile[0].I }}</li>
+            <li>City/District: {{ shapefile[0].A }} </li>
+            <li>License: {{ shapefile[0].N }} </li>
+            <li>Topic Category: {{ shapefile[0].E }} </li>
+            <li>Language: {{ shapefile[0].F }}</li>
+            <li>Use limitations: {{ shapefile[0].G }}</li>
+            <li>Completeness: {{ shapefile[0].J }}</li>
+            <li>Responsible party: {{ shapefile[0].L }}</li>
+            <li>Attributes: {{ shapefile[0].M }}</li>
+            <li>Attachment: <a :href="shapefile[0].B">Download</a> <i class="fa fa-download"></i> </li>
             </ul>
         </div>
         <div class="result--Depict">
@@ -41,9 +47,15 @@ var Case3 = `
             <ul>
                 <li>Country: {{ Country }} </li>
                 <li>Province: {{ Province }} </li>
-                <li>City/District: {{ shapefile[pagnigation].A }} </li>
-                <li>License: {{ shapefile[pagnigation].O }} </li>
-                <li>Describe: {{ shapefile[pagnigation].E }} </li>
+                <li v-if="shapefile[0] != shapefile[pagnigation]">City/District: {{ shapefile[pagnigation].A }} </li>
+                <li>License: {{ shapefile[pagnigation].N }} </li>
+                <li>Topic Category: {{ shapefile[pagnigation].E }} </li>
+                <li>Language: {{ shapefile[pagnigation].F }}</li>
+                <li>GeoNames: {{ shapefile[pagnigation].I }}</li>
+                <li>Use limitations: {{ shapefile[pagnigation].G }}</li>
+                <li>Completeness: {{ shapefile[pagnigation].J }}</li>
+                <li>Responsible party: {{ shapefile[pagnigation].L }}</li>
+                <li>Attributes: {{ shapefile[pagnigation].M }}</li>
                 <li>Attachment: <a :href="shapefile[pagnigation].B">Download</a> <i class="fa fa-download"></i> </li>
             </ul>
 
