@@ -39,9 +39,9 @@
                             <div>
                                 <!-- <input type="checkbox" id="Country" name="Country" v-on:change="CatchCheckEvent('Country')"> <label for="Country">Country</label> -->
                                 <!-- <br> -->
-                                <input type="checkbox" id="Province" name="Province" v-on:change="CatchCheckEvent('Province')" checked>  <label for="Province">Province</label>
+                                    <input type="checkbox" id="Province" name="Province" v-on:change="CatchCheckEvent('Province')" checked>  <label for="Province">Province</label>
                                 <br>
-                                <input type="checkbox" id="District" name="District" v-on:change="CatchCheckEvent('District')">  <label for="District">District</label>
+                                    <input type="checkbox" id="District" name="District" v-on:change="CatchCheckEvent('District')">  <label for="District">District</label>
                             </div>
                         </fieldset>
                     </div>
@@ -56,12 +56,18 @@
                     <div class="EnterKeyword" v-if="showInput2">
                         <label for="Province">Province</label>
                         <br><br>
-                        <input type="text" name="input-Province" id="input-Province" autocomplete="node" required>
+                        <div class="autocomplete">
+                            <input type="text" name="input-Province" id="input-Province" autocomplete="node" required>
+                        </div>
+                        
                     </div>
                     <div class="EnterKeyword" v-if="showInput3">
                         <label for="District">District</label>
                         <br><br>
-                        <input type="text" name="input-District" id="input-District" autocomplete="node" required>
+                        <div class="autocomplete">
+                            <input type="text" name="input-District" id="input-District" autocomplete="node" required>
+                        </div>
+                        
                     </div>
                     <div style="height: 50px;">
 
@@ -97,6 +103,7 @@
     <script src="main.js"></script>
     <script src="./resources/views/blocks/results/template.js"></script>
     <script src="./resources/views/blocks/results/queryAPI.js"></script>
+    <script src="./autocomplete.js"></script>
 </body>
 </html>
 

@@ -46,6 +46,7 @@ const ProvinceList = {
 }
 
 const DistrictList = {
+    // Ca Mau
     CM_1: 'Cai Nuoc', 
     CM_2: 'Dam Doi',
     CM_3: 'Nam Can',
@@ -55,7 +56,7 @@ const DistrictList = {
     CM_7: 'Tp Ca Mau',
     CM_8: 'Tran Van Thoi',
     CM_9: 'U Minh',
-
+    // An Giang
     AG_1: 'An Phu',
     AG_2: 'Chau Doc', 
     AG_3: 'Chau Phu',

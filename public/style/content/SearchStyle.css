@@ -66,7 +66,7 @@
 .EnterKeyword {
     margin-bottom: 1.5vh;
 }
-.EnterKeyword > input {
+.EnterKeyword > .autocomplete > input {
     width: 96%;
     border-radius: 5px;
     border: 0.2px solid grey;
@@ -138,3 +138,38 @@
         width: calc(var(--widthSearch) + 5%);
     }
 }
+
+/* Active */
+.autocomplete {
+    position: relative;
+}
+.autocomplete strong {
+    font-size: 18px;
+}
+.autocomplete-items {
+    font-size: 18px;
+    /* box-shadow: 4px 10px 10px 1px grey; */
+    position: absolute;
+    width: 100%;
+    /* padding: 0vh 2%; */
+    background: white;
+    cursor: pointer;
+    z-index: 1; 
+ }
+
+ .autocomplete-items div {
+    font-size: 18px;
+    padding: 1% 1%;
+ }
+
+ .autocomplete-active {
+   background-color: DodgerBlue !important; 
+   cursor: pointer;
+   color: #ffffff; 
+   font-size: 18px;
+   padding: 1% 1%;
+ }
+
+ .autocomplete-active strong {
+    font-size: 18px;
+ }

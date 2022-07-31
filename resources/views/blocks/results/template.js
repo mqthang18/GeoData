@@ -26,16 +26,22 @@ var Case2 = `
             <li>Completeness: {{ shapefile[0].J }}</li>
             <li>Responsible party: {{ shapefile[0].L }}</li>
             <li>Attributes: {{ shapefile[0].M }}</li>
-            <li>Attachment: <a :href="shapefile[0].B">Download</a> <i class="fa fa-download"></i> </li>
+            <li>Attachment: 
+                <a v-if="shapefile[0].B != null" :href="shapefile[0].B">Download <i class="fa fa-download"></i></a> 
+                <a v-if="shapefile[0].B == null" :href="shapefile[0].B">None available</a> 
+            </li>
             </ul>
         </div>
         <div class="result--Depict">
-            <center>
+            <center v-if="shapefile[0].C != null">
                 <iframe :src="shapefile[0].C" class="depictImage"></iframe>
                 <br>
                 <label class="depictImage" for="depictImage">Depicted image</label>
                 <br>
                 <br>
+            </center>
+            <center>
+                <h3 style="line-height: 70px; font-size: 24px;" >Sorry, depicted of image is still not updated.</h3>
             </center>
         </div>
     </div>
@@ -56,7 +62,10 @@ var Case3 = `
                 <li>Completeness: {{ shapefile[pagnigation].J }}</li>
                 <li>Responsible party: {{ shapefile[pagnigation].L }}</li>
                 <li>Attributes: {{ shapefile[pagnigation].M }}</li>
-                <li>Attachment: <a :href="shapefile[pagnigation].B">Download</a> <i class="fa fa-download"></i> </li>
+                <li>Attachment:
+                    <a v-if="shapefile[pagnigation].B != null" :href="shapefile[pagnigation].B">Download <i class="fa fa-download"></i></a> 
+                    <a v-if="shapefile[pagnigation].B == null" :href="shapefile[pagnigation].B">None available</a> 
+                </li>
             </ul>
 
             <center>
