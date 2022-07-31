@@ -95,8 +95,28 @@ function autocomplete(inp, arr) {
     });
   }
 
+  if (document.getElementById("input-Province")!=null) {
+    autocomplete(document.getElementById("input-Province"), Object.values(ProvinceList));
+  }
+var ListDistrict = Object.values(DistrictList);
 document.addEventListener("change", function(e) {
-  if (document.getElementById("input-Province")!=null) autocomplete(document.getElementById("input-Province"), Object.values(ProvinceList));
-  if (document.getElementById("input-District")!=null) autocomplete(document.getElementById("input-District"), Object.values(DistrictList));
+  if (document.getElementById("input-Province")!=null) {
+    autocomplete(document.getElementById("input-Province"), Object.values(ProvinceList));
+    var val = document.getElementById("input-Province").value;
+    if (val !== undefined) {
+      ListDistrict = Object.values(DistrictList);
+    }
+    else {
+      console.log(appSearch.getKeyByValue(ProvinceList, val));
+      MngProv.forEach(element=>{
+        console.log(element.ProvinceCode);
+        if (element.ProvinceCode == appSearch.getKeyByValue(ProvinceList, val)) {
+          ListDistrict = Object.values(element.District);
+          // console.log(element.District);
+          // console.log(ListDistrict);
+        }
+      })
+    }}
+  if (document.getElementById("input-District")!=null) autocomplete(document.getElementById("input-District"), Object.values(ListDistrict));
 })
 
