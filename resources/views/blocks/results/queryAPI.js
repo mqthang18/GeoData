@@ -11,7 +11,7 @@ const country = [
 //                 GsheetID: '1uXdMGmYm8LQmbsjznC_Rt_EYx2Sh4ElDNJ-AX2BjU5A'
 //             },
 //             {
-//                 AreaCode: 'NB_DBNB',
+//                 AreaCode: 'NB_DNB',
 //                 GsheetID: '1JOj4IsTCCc0zBcuTEE-u9hCbRybvkYmY7K_KH4dFskk'
 //             }, 
 //             {
@@ -30,6 +30,7 @@ const country = [
 //     }   
 // ]
 const ProvinceList = {
+    // Dong Bang Song Cuu Long
     AG: 'An Giang',
     BL: 'Bac Lieu', 
     BT: 'Ben Tre',
@@ -42,10 +43,15 @@ const ProvinceList = {
     ST: 'Soc Trang',
     TG: 'Tien Giang',
     TV: 'Tra Vinh',
-    VL: 'Vinh Long'
+    VL: 'Vinh Long',
+
+    // Dong Nam Bo
+    HCM: 'Ho Chi Minh'
 }
 
 const DistrictList = {
+
+    // Dong Bang Song Cuu Long
     // Ca Mau
     CM_1: 'Cai Nuoc', 
     CM_2: 'Dam Doi',
@@ -190,6 +196,32 @@ const DistrictList = {
     DT_10: 'Thap Muoi',
     DT_11: 'Tp Hong Ngu',
     DT_12: 'Tp Cao Lanh',
+
+    // Dong Nam Bo
+    HCM_1: 'Thu Duc',
+    HCM_2: 'Tan Phu',
+    HCM_3: 'Tan Binh',
+    HCM_4: 'Quan 9',
+    HCM_5: 'Quan 8',
+    HCM_6: 'Quan 7',
+    HCM_7: 'Quan 6',
+    HCM_8: 'Quan 5',
+    HCM_9: 'Quan 4',
+    HCM_10: 'Quan 3',
+    HCM_11: 'Quan 2',
+    HCM_12: 'Quan 12',
+    HCM_13: 'Quan 11',
+    HCM_14: 'Quan 10',
+    HCM_15: 'Quan 1',
+    HCM_16: 'Phu Nhuan',
+    HCM_17: 'Nha Be',
+    HCM_18: 'Hoc Mon',
+    HCM_19: 'Go Vap',
+    HCM_20: 'Cu Chi',
+    HCM_21: 'Can Gio',
+    HCM_22: 'Binh Thanh',
+    HCM_23: 'Binh Tan',
+    HCM_24: 'Binh Chanh',
 }
 
 const MngProv = 
@@ -421,6 +453,41 @@ const MngProv =
             },
             DistrictSheetID: '16gSxMWCK96ypKFwqg1B6dZeu2Dm4NLFUIYrCLgtyXAY',
             ProvinceSheetID: '1uXdMGmYm8LQmbsjznC_Rt_EYx2Sh4ElDNJ-AX2BjU5A'
+        },
+
+        // NB_DNB
+        {
+            Country: 'Viet Nam',
+            AreaCode: 'NB_DNB',
+            ProvinceCode: 'HCM',
+            District: {
+                HCM_1: 'Thu Duc',
+                HCM_2: 'Tan Phu',
+                HCM_3: 'Tan Binh',
+                HCM_4: 'Quan 9',
+                HCM_5: 'Quan 8',
+                HCM_6: 'Quan 7',
+                HCM_7: 'Quan 6',
+                HCM_8: 'Quan 5',
+                HCM_9: 'Quan 4',
+                HCM_10: 'Quan 3',
+                HCM_11: 'Quan 2',
+                HCM_12: 'Quan 12',
+                HCM_13: 'Quan 11',
+                HCM_14: 'Quan 10',
+                HCM_15: 'Quan 1',
+                HCM_16: 'Phu Nhuan',
+                HCM_17: 'Nha Be',
+                HCM_18: 'Hoc Mon',
+                HCM_19: 'Go Vap',
+                HCM_20: 'Cu Chi',
+                HCM_21: 'Can Gio',
+                HCM_22: 'Binh Thanh',
+                HCM_23: 'Binh Tan',
+                HCM_24: 'Binh Chanh',
+            },
+            DistrictSheetID: '1gQ10i9XuWH2ctoI-vhzAXJL6mSpk6PAekv76P1Yd83U',
+            ProvinceSheetID: '1JOj4IsTCCc0zBcuTEE-u9hCbRybvkYmY7K_KH4dFskk'
         }
     ]
 
