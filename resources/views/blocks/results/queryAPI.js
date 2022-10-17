@@ -46,7 +46,15 @@ const ProvinceList = {
     VL: 'Vinh Long',
 
     // Dong Nam Bo
-    HCM: 'Ho Chi Minh'
+    HCM: 'Ho Chi Minh',
+    BD: 'Binh Duong',
+    BP: 'Binh Phuoc',
+    BRVT: 'Ba Ria - Vung Tau',
+    DN: 'Dong Nai',
+    TN: 'Tay Ninh',
+
+    // Dong Bac Bo
+    BG: 'Bac Giang',
 }
 
 const DistrictList = {
@@ -112,6 +120,7 @@ const DistrictList = {
     CT_7: 'Thoi Lai',
     CT_8: 'Thot Not',
     CT_9: 'Vinh Thanh',
+
     // Bac Lieu
     BL_1: 'Dong Hai',
     BL_2: 'Gia Rai',
@@ -120,6 +129,7 @@ const DistrictList = {
     BL_5: 'Phuoc Long',
     BL_6: 'TP Bac Lieu', 
     BL_7: 'Vinh Loi',
+
     // Long An 
     LA_1: 'Ben Luc',
     LA_2: 'Can Duoc',
@@ -222,6 +232,72 @@ const DistrictList = {
     HCM_22: 'Binh Thanh',
     HCM_23: 'Binh Tan',
     HCM_24: 'Binh Chanh',
+
+    // Binh Duong
+    BD_1:'Ben Cat',
+    BD_2:'Dau Tieng',
+    BD_3:'Di An',
+    BD_4:'Phu Giao',
+    BD_5:'Tan Uyen',
+    BD_6:'Thu Dau Mot',
+    BD_7:'Thuan An',
+
+    // Binh Phuoc
+    BP_1: 'Binh Long',
+    BP_2: 'Bu Dang',
+    BP_3: 'Bu Dop',
+    BP_4: 'Bu Gia Map',
+    BP_5: 'Chon Thanh',
+    BP_6: 'Dong Phu',
+    BP_7: 'Dong Xoai',
+    BP_8: 'Hon Quan',
+    BP_9: 'Loc Ninh',
+    BP_10: 'Phuoc Long',
+
+    //Ba Ria - Vung Tau
+    BRVT_1: 'Ba Ria',
+    BRVT_2: 'Chau Duc',
+    BRVT_3: 'Dat Do',
+    BRVT_4: 'Long Dien',
+    BRVT_5: 'Tan Thanh',
+    BRVT_6: 'Vung Tau',
+    BRVT_7: 'Xuyen Moc',
+
+    // Dong Nai
+    DN_1:'Bien Hoa',
+    DN_2:'Cam My',
+    DN_3:'Dinh Quan',
+    DN_4:'Long Khanh',
+    DN_5:'Long Thanh',
+    DN_6:'Nhon Trach',
+    DN_7:'Tan Phu',
+    DN_8:'Thong Nhat',
+    DN_9:'Trang Bom',
+    DN_10:'Vinh Cuu',
+    DN_11:'Xuan Loc',
+
+    // Tay Ninh 
+    TN_1:'Ben Cau',
+    TN_2:'Chau Thanh',
+    TN_3:'Duong Minh Chau',
+    TN_4:'Go Dau',
+    TN_5:'Hoa Thanh',
+    TN_6:'Tan Chau',
+    TN_7:'Tan Bien',
+    TN_8:'TP Tay Ninh',
+    TN_9:'Trang Bang',
+
+    // Bac Giang 
+    BG_1: 'Hiep Hoa',
+    BG_2: 'Lang Giang',
+    BG_3: 'Luc Nam',
+    BG_4: 'Luc Ngan',
+    BG_5: 'Son Dong',
+    BG_6: 'Tan Yen',
+    BG_7: 'TP Bac Giang',
+    BG_8: 'Viet Yen',
+    BG_9: 'Yen Dung',
+    BG_10: 'Yen The',
 }
 
 const MngProv = 
@@ -488,6 +564,115 @@ const MngProv =
             },
             DistrictSheetID: '1gQ10i9XuWH2ctoI-vhzAXJL6mSpk6PAekv76P1Yd83U',
             ProvinceSheetID: '1JOj4IsTCCc0zBcuTEE-u9hCbRybvkYmY7K_KH4dFskk'
+        },
+        {
+            Country: 'Viet Nam',
+            AreaCode: 'NB_DNB',
+            ProvinceCode: 'BD',
+            District: {
+                BD_1:'Ben Cat',
+                BD_2:'Dau Tieng',
+                BD_3:'Di An',
+                BD_4:'Phu Giao',
+                BD_5:'Tan Uyen',
+                BD_6:'Thu Dau Mot',
+                BD_7:'Thuan An'
+            },
+            DistrictSheetID: '1kAJHthrGWVA-Hx_ZzWFrMk4AWexOeph_YF3kEvlcmH0',
+            ProvinceSheetID: '1JOj4IsTCCc0zBcuTEE-u9hCbRybvkYmY7K_KH4dFskk'
+        },
+        {
+            Country: 'Viet Nam',
+            AreaCode: 'NB_DNB',
+            ProvinceCode: 'BP',
+            District: {
+                BP_1: 'Binh Long',
+                BP_2: 'Bu Dang',
+                BP_3: 'Bu Dop',
+                BP_4: 'Bu Gia Map',
+                BP_5: 'Chon Thanh',
+                BP_6: 'Dong Phu',
+                BP_7: 'Dong Xoai',
+                BP_8: 'Hon Quan',
+                BP_9: 'Loc Ninh',
+                BP_10: 'Phuoc Long'
+            },
+            DistrictSheetID: '1wBbn2i9zgxwl8mKKBqxUXCUXiyJ9Jx_pXCVbgc-UY5o',
+            ProvinceSheetID: '1JOj4IsTCCc0zBcuTEE-u9hCbRybvkYmY7K_KH4dFskk'
+        },
+        {
+            Country: 'Viet Nam',
+            AreaCode: 'NB_DNB',
+            ProvinceCode: 'BRVT',
+            District: {
+                BRVT_1: 'Ba Ria',
+                BRVT_2: 'Chau Duc',
+                BRVT_3: 'Dat Do',
+                BRVT_4: 'Long Dien',
+                BRVT_5: 'Tan Thanh',
+                BRVT_6: 'Vung Tau',
+                BRVT_7: 'Xuyen Moc',
+            },
+            DistrictSheetID: '1aiPsGfiLKst7tLBHIR4YolUTZFDEABVJuKJTsrZNSxQ',
+            ProvinceSheetID: '1JOj4IsTCCc0zBcuTEE-u9hCbRybvkYmY7K_KH4dFskk'
+        },
+        {
+            Country: 'Viet Nam',
+            AreaCode: 'NB_DNB',
+            ProvinceCode: 'DN',
+            District: {
+                DN_1:'Bien Hoa',
+                DN_2:'Cam My',
+                DN_3:'Dinh Quan',
+                DN_4:'Long Khanh',
+                DN_5:'Long Thanh',
+                DN_6:'Nhon Trach',
+                DN_7:'Tan Phu',
+                DN_8:'Thong Nhat',
+                DN_9:'Trang Bom',
+                DN_10:'Vinh Cuu',
+                DN_11:'Xuan Loc',
+            },
+            DistrictSheetID: '1PsrGkozthGCAyIbAjQNljSBsutffEjNuCFx5m0f9gyc',
+            ProvinceSheetID: '1JOj4IsTCCc0zBcuTEE-u9hCbRybvkYmY7K_KH4dFskk'
+        },
+        {
+            Country: 'Viet Nam',
+            AreaCode: 'NB_DNB',
+            ProvinceCode: 'TN',
+            District: {
+                TN_1:'Ben Cau',
+                TN_2:'Chau Thanh',
+                TN_3:'Duong Minh Chau',
+                TN_4:'Go Dau',
+                TN_5:'Hoa Thanh',
+                TN_6:'Tan Chau',
+                TN_7:'Tan Bien',
+                TN_8:'TP Tay Ninh',
+                TN_9:'Trang Bang'
+            },
+            DistrictSheetID: '1XfjGR9T0PqbB769joeyFrIi3BuThOIHCO-HRKAYx7Po',
+            ProvinceSheetID: '1JOj4IsTCCc0zBcuTEE-u9hCbRybvkYmY7K_KH4dFskk'
+        },
+        // BB_DBB
+        {
+            Country: 'Viet Nam',
+            AreaCode: 'BB_DBB',
+            ProvinceCode: 'BG',
+            District: {
+                BG_1: 'Hiep Hoa',
+                BG_2: 'Lang Giang',
+                BG_3: 'Luc Nam',
+                BG_4: 'Luc Ngan',
+                BG_5: 'Son Dong',
+                BG_6: 'Tan Yen',
+                BG_7: 'TP Bac Giang',
+                BG_8: 'Viet Yen',
+                BG_9: 'Yen Dung',
+                BG_10: 'Yen The'
+            },
+            DistrictSheetID: '1tpmqYU8KHFQkgcvOnWdnwtDnO5aSDTWx6vf5SXsyp5M',
+            ProvinceSheetID: '1XlV8zzaAAA9RR2G-hx8S1l43n_o46NPQ-XVwybDPAZA'
         }
     ]
 
