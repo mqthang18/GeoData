@@ -55,7 +55,9 @@ const ProvinceList = {
 
     // Dong Bac Bo
     BG: 'Bac Giang',
-    QN: 'Quang Ninh'
+    QN: 'Quang Ninh',
+    TN: 'Thai Nguyen',
+    PT: 'Phu Tho'
 }
 
 const DistrictList = {
@@ -311,6 +313,32 @@ const DistrictList = {
     QN_8:'Quang Yen',
     QN_9:'Tien Yen',
     QN_10:'Uong Bi',
+
+    // Thai Nguyen
+    TN_1:'Phu Tho',
+    TN_2:'Ha Giang',
+    TN_3:'Tuyen Quang',
+    TN_4:'Bac Kan',
+    TN_5:'Cao Bang',
+    TN_6:'Thai Nguyen',
+    TN_7:'Lang Son',
+    TN_8:'Bac Giang',
+    TN_9:'Quang Ninh',
+
+    // Phu Tho
+    PT_1:'Cam Khe',
+    PT_2:'Doan Hung',
+    PT_3:'Ha Hoa',
+    PT_4:'Lam Thao',
+    PT_5:'Phu Ninh',
+    PT_6:'TX Phu Tho', 
+    PT_7:'Tam Nong',
+    PT_8:'Tan Son',
+    PT_9:'Thanh Ba',
+    PT_10:'Thanh Son',
+    PT_11:'Thanh Thuy',
+    PT_12:'Viet Tri',
+    PT_13:'Yen Lap',
 }
 
 const MngProv = 
@@ -704,6 +732,46 @@ const MngProv =
                 QN_10:'Uong Bi'
             },
             DistrictSheetID: '1ShoJlnPj4XbNTbCtj4tX1C6d9-PFLgTDnyq9_RHEKTA',
+            ProvinceSheetID: '1XlV8zzaAAA9RR2G-hx8S1l43n_o46NPQ-XVwybDPAZA'
+        },
+        {
+            Country: 'Viet Nam',
+            AreaCode: 'BB_DBB',
+            ProvinceCode: 'TN',
+            District: {
+                TN_1:'Phu Tho',
+                TN_2:'Ha Giang',
+                TN_3:'Tuyen Quang',
+                TN_4:'Bac Kan',
+                TN_5:'Cao Bang',
+                TN_6:'Thai Nguyen',
+                TN_7:'Lang Son',
+                TN_8:'Bac Giang',
+                TN_9:'Quang Ninh'
+            },
+            DistrictSheetID: '1jOv3NhRoONz2MTtoAkOow_P6rInJEJe9ASy-4wYjCIk',
+            ProvinceSheetID: '1XlV8zzaAAA9RR2G-hx8S1l43n_o46NPQ-XVwybDPAZA'
+        },
+        {
+            Country: 'Viet Nam',
+            AreaCode: 'BB_DBB',
+            ProvinceCode: 'PT',
+            District: {
+                PT_1:'Cam Khe',
+                PT_2:'Doan Hung',
+                PT_3:'Ha Hoa',
+                PT_4:'Lam Thao',
+                PT_5:'Phu Ninh',
+                PT_6:'TX Phu Tho', 
+                PT_7:'Tam Nong',
+                PT_8:'Tan Son',
+                PT_9:'Thanh Ba',
+                PT_10:'Thanh Son',
+                PT_11:'Thanh Thuy',
+                PT_12:'Viet Tri',
+                PT_13:'Yen Lap'
+            },
+            DistrictSheetID: '13SB6gZgnT7Nvr376_f_vWllUpT6VlFX_f_BN0leGOXQ',
             ProvinceSheetID: '1XlV8zzaAAA9RR2G-hx8S1l43n_o46NPQ-XVwybDPAZA'
         }
     ]
