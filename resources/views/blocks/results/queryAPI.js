@@ -55,6 +55,7 @@ const ProvinceList = {
 
     // Dong Bac Bo
     BG: 'Bac Giang',
+    QN: 'Quang Ninh'
 }
 
 const DistrictList = {
@@ -298,6 +299,18 @@ const DistrictList = {
     BG_8: 'Viet Yen',
     BG_9: 'Yen Dung',
     BG_10: 'Yen The',
+
+    // Quang Ninh
+    QN_1:'Ba Che',
+    QN_2:'Binh Lieu',
+    QN_3:'Dong Trieu',
+    QN_4:'Ha Long',
+    QN_5:'Hai Ha',
+    QN_6:'Hoanh Bo',
+    QN_7:'Mong Cai',
+    QN_8:'Quang Yen',
+    QN_9:'Tien Yen',
+    QN_10:'Uong Bi',
 }
 
 const MngProv = 
@@ -672,6 +685,25 @@ const MngProv =
                 BG_10: 'Yen The'
             },
             DistrictSheetID: '1tpmqYU8KHFQkgcvOnWdnwtDnO5aSDTWx6vf5SXsyp5M',
+            ProvinceSheetID: '1XlV8zzaAAA9RR2G-hx8S1l43n_o46NPQ-XVwybDPAZA'
+        },
+        {
+            Country: 'Viet Nam',
+            AreaCode: 'BB_DBB',
+            ProvinceCode: 'QN',
+            District: {
+                QN_1:'Ba Che',
+                QN_2:'Binh Lieu',
+                QN_3:'Dong Trieu',
+                QN_4:'Ha Long',
+                QN_5:'Hai Ha',
+                QN_6:'Hoanh Bo',
+                QN_7:'Mong Cai',
+                QN_8:'Quang Yen',
+                QN_9:'Tien Yen',
+                QN_10:'Uong Bi'
+            },
+            DistrictSheetID: '1ShoJlnPj4XbNTbCtj4tX1C6d9-PFLgTDnyq9_RHEKTA',
             ProvinceSheetID: '1XlV8zzaAAA9RR2G-hx8S1l43n_o46NPQ-XVwybDPAZA'
         }
     ]
