@@ -159,7 +159,7 @@ function HandleAPI(dataset) {
                     var APIurl = "https://docs.google.com/spreadsheets/d/"+id+"/gviz/tq?sheet=";
                     var queryStr = 'Select *';
                     console.log(DistrictCode);
-                    if (DistrictCode !== null) queryStr = queryStr + ' where A = "' + DistrictList[DistrictCode] +'"';
+                    if (DistrictCode !== null) queryStr = queryStr + ' where A = "' + DistrictList[DistrictCode][0] +'"';
                     console.log(queryStr);
                     var query = encodeURIComponent(queryStr);
                     APIurl = APIurl + 'AdminstrativeBoundary' + '&tq=' + query;
@@ -187,7 +187,7 @@ function HandleAPI(dataset) {
                     var APIurl2 = "https://docs.google.com/spreadsheets/d/"+id[1]+"/gviz/tq?sheet=";
 
                     var queryStr1 = 'Select *';
-                    var queryStr2 = 'Select * where A = "' + ProvinceList[ProvinceCode] + '"';
+                    var queryStr2 = 'Select * where A = "' + ProvinceList[ProvinceCode][0] + '"';
 
                     console.log(queryStr1);
                     console.log(queryStr2);
@@ -247,6 +247,7 @@ function HandleAPI(dataset) {
                             District: CapitalFirstletter(District.value.trim().replace(/  +/g, ' '))
                         }); 
                 };
+               
                 if (arr.length == 0) OpenPopUp();
                 else {
                     var ele1 = document.getElementById('loadingGIF');
@@ -272,13 +273,37 @@ function HandleAPI(dataset) {
                                 dict["Country"] = element.Country;
                                 break;
                             case 'Province':
-                                dict["ProvinceCode"] = this.getKeyByValue(ProvinceList, element.Province); 
+                                // dict["ProvinceCode"] = this.getKeyByValue(ProvinceList, element.Province); 
                                 // if (dict.ProvinceCode === undefined) {
                                 //     alert("Your province is entered then don't find in list province of Viet Nam");
                                 // }
+
+                                // if (element.Province.includes('Tinh')) element.Province = element.Province.replace('Tinh', 'Tỉnh');
+                                for (const [key, value] of Object.entries(ProvinceList)) {
+                                    // console.log(key, value);
+                                    // CapitalFirstletter(value.trim().replace(/  +/g, ' '))
+                                    value.forEach(function(v, index) {
+                                        console.log(index)
+                                        value[index] = CapitalFirstletter(v.trim().replace(/  +/g, ' '))
+                                        
+                                    })
+                                    console.log(value)
+                                    if (value.includes(element.Province)) {
+                                        console.log(value.includes(element.Province))
+                                        dict["ProvinceCode"] = key
+                                    }
+                                  }
+                                
+                                console.log(element.Province)
+                                console.log(dict["ProvinceCode"])
                                 break;
                             case 'District':
-                                dict["DistrictCode"] = this.getKeyByValue(DistrictList, element.District);
+                                for (const [key, value] of Object.entries(DistrictList)) {
+                                    // console.log(key, value);
+                                    if (value.includes(element.District)) {
+                                        dict["DistrictCode"] = key
+                                    }
+                                  }
                                 // if (dict.District === undefined) {
                                 //     alert("Your district is entered then don't find in list district of Viet Nam");
                                 // }
@@ -289,6 +314,7 @@ function HandleAPI(dataset) {
                     if (!Object.values(dict).includes(undefined)) {
                         var newDict;
                         MngProv.forEach(element=>{
+                    
                             if (Object.values(dict).includes(element.ProvinceCode) || Object.values(dict).includes(element.Country) || Object.keys(element.District).includes(dict['DistrictCode'])) {
                                     newDict = {
                                         ProvinceSheetID: element.ProvinceSheetID,
@@ -297,6 +323,8 @@ function HandleAPI(dataset) {
                                         ProvinceCode: element.ProvinceCode,
                                         DistrictCode: dict['DistrictCode']
                                     } 
+                                    // console.log('Right here')
+                                    // console.log(newDict)
                             }
                         });
                         if (newDict == undefined) this.RetrieveDistrictData(null,null,null,null)
@@ -379,12 +407,13 @@ function HandleAPI(dataset) {
                     }  
                 },
                 ChangePageIndex(i) {
+                    console.log(i)
                     var selectP = i;
                     this.pagnigation = selectP;
                     
                     var ele = document.getElementsByClassName('btn');
 
-                    console.log(ele);
+                    // console.log(ele);
                     var key;
                     for (var i = 0; i < ele.length; i++) {
                         // console.log(ele[i]);
