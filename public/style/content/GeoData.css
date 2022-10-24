@@ -170,4 +170,8 @@
     .depictImage {
         font-size:3.4vw; 
     }
+
+    .wrapper .footer .footer--content p {
+        margin: auto;
+    }
 }
