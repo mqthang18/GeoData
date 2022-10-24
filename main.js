@@ -280,16 +280,13 @@ function HandleAPI(dataset) {
 
                                 // if (element.Province.includes('Tinh')) element.Province = element.Province.replace('Tinh', 'Tỉnh');
                                 for (const [key, value] of Object.entries(ProvinceList)) {
-                                    // console.log(key, value);
-                                    // CapitalFirstletter(value.trim().replace(/  +/g, ' '))
                                     value.forEach(function(v, index) {
                                         console.log(index)
                                         value[index] = CapitalFirstletter(v.trim().replace(/  +/g, ' '))
                                         
                                     })
-                                    console.log(value)
                                     if (value.includes(element.Province)) {
-                                        console.log(value.includes(element.Province))
+                                        // console.log(value.includes(element.Province))
                                         dict["ProvinceCode"] = key
                                     }
                                   }
