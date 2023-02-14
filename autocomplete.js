@@ -1,6 +1,6 @@
 function autocomplete(inp, Oriarr) {
     arr = Oriarr.join().split(",");
-    console.log(arr)
+    // console.log(arr)
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;

@@ -17,6 +17,7 @@
 
 .result--GeoData {
     width: 100%;
+    background-color: #f2f2f287;
 }
 
 .result--GeoData > center {

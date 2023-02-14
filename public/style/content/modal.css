@@ -1,6 +1,9 @@
 .content > #modal {
-    position: relative;  
+    position: absolute;  
+    top: 0;
+    /* height: 100%; */
     width: 100%;
+    background-color: rgba(128, 128, 128, 0.521);
 }
 
 .content > #modal > .PopUp {
